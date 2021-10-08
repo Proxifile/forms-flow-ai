@@ -107,6 +107,16 @@ server:
     cookie:
       secure: true
 
+server:
+  port: 8443
+  ssl:
+    key-store: file:/certs/keystore.ks
+    key-store-password: changeit
+    key-store-type: pkcs12
+    key-alias: tomcat
+    key-password: changeit
+  servlet.context-path: /camunda
+
 security:
   oauth2:
     client:
