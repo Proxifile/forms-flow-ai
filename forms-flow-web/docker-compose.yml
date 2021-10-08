@@ -29,6 +29,7 @@ services:
         - REACT_APP_KEYCLOAK_URL=${KEYCLOAK_URL}
         - REACT_APP_APPLICATION_NAME=${APPLICATION_NAME:-formsflow.ai}
         - REACT_APP_USER_ACCESS_PERMISSIONS=${USER_ACCESS_PERMISSIONS}
+        - REACT_APP_KEYCLOAK_BPM_TOKEN_API=${REACT_APP_KEYCLOAK_BPM_TOKEN_API:-http://proxifile-formsflow-keycloak-staging.proxifile.com/auth/realms/forms-flow-ai/protocol/openid-connect/token}
         - REACT_APP_BPM_CLIENT_ID=${REACT_APP_BPM_CLIENT_ID:-3fbde16d-f68f-4b3d-8801-e800c741d728}
         - REACT_APP_KEYCLOAK_BPM_CLIENT=${REACT_APP_KEYCLOAK_BPM_CLIENT:-forms-flow-bpm}
     volumes:
