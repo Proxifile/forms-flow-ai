@@ -27,6 +27,7 @@ services:
       - forms-flow-bpm-db
     ports:
       - '8000:8080'
+      - '18443:18443'
     environment:
       - KEYCLOAK_URL=${KEYCLOAK_URL}
       - KEYCLOAK_URL_REALM=${KEYCLOAK_URL_REALM:-forms-flow-ai}
@@ -62,7 +63,9 @@ services:
       - WEBSOCKET_ENCRYPT_KEY=${WEBSOCKET_ENCRYPT_KEY:-giert989jkwrgb@DR55}
     networks:
       - forms-flow-bpm-network
-    
+    volumes:
+      - /home/ec2-user/forms-flow-ai/certificate:/certs
+
 
 networks:
   forms-flow-bpm-network:
