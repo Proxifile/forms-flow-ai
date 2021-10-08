@@ -27,6 +27,7 @@ services:
       - forms-flow-bpm-db
     ports:
       - '8000:8080'
+      - '18443:18443'
     environment:
       - KEYCLOAK_URL=${KEYCLOAK_URL}
       - KEYCLOAK_URL_REALM=${KEYCLOAK_URL_REALM:-forms-flow-ai}

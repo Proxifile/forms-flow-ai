@@ -100,15 +100,15 @@ camunda.bpm:
 #    max-wait: ${CAMUNDA_JOB_MAX_WAIT:60000}
 #  metrics:
 #    enabled: ${CAMUNDA_METRICS_FLAG:true}
-server:
-  port: 8080
-  servlet.context-path: /camunda
-  session:
-    cookie:
-      secure: true
+#server:
+#  port: 8080
+#  servlet.context-path: /camunda
+#  session:
+#    cookie:
+#      secure: true
 
 server:
-  port: 8443
+  port: 18443
   ssl:
     key-store: file:/certs/keystore.ks
     key-store-password: changeit
