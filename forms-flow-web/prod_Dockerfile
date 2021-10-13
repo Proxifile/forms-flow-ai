@@ -26,6 +26,9 @@ ARG REACT_APP_KEYCLOAK_URL_REALM
 ARG REACT_APP_KEYCLOAK_URL
 ARG REACT_APP_APPLICATION_NAME
 ARG REACT_APP_USER_ACCESS_PERMISSIONS
+ARG REACT_APP_KEYCLOAK_BPM_TOKEN_API
+ARG REACT_APP_BPM_CLIENT_ID
+ARG REACT_APP_KEYCLOAK_BPM_CLIENT
 
 ENV NODE_ENV ${NODE_ENV}
 ENV GENERATE_SOURCEMAP ${GENERATE_SOURCEMAP}
@@ -70,6 +73,7 @@ COPY forms-flow-util/package-lock.json /forms-flow-web/app/forms-flow-util/packa
 RUN npm install --unsafe-perm
 #RUN npm install react-scripts@3.0.1 -g --silent
 COPY . /forms-flow-web/app/
+COPY .env /forms-flow-web/app/
 RUN npm run build
 
 FROM nginx:1.17 as production-stage
