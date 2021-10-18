@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1v0gxqp" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="4.10.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.15.0">
+  <bpmn:process id="property-claim-email-notification-500" name="property-claim-email-notification-500" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1">
+      <bpmn:extensionElements>
+        <camunda:executionListener class="org.camunda.bpm.extension.hooks.listeners.FormBPMDataPipelineListener" event="start" />
+      </bpmn:extensionElements>
+      <bpmn:outgoing>Flow_1840cna</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_1840cna" sourceRef="StartEvent_1" targetRef="send-email" />
+    <bpmn:serviceTask id="send-email" name="Send Email">
+      <bpmn:extensionElements>
+        <camunda:connector>
+          <camunda:inputOutput>
+            <camunda:inputParameter name="html">
+              <camunda:script scriptFormat="freemarker">&lt;p&gt;Hi ${email},&lt;/p&gt;
+&lt;p&gt;
+  Thank you for trusting Proxifile to help you with your property claim. We&lt;br/&gt;
+  are happy to tell you that our property claim service is now available in&lt;br/&gt;
+  CA&lt;br/&gt;
+  Just click the button below to fill our claim eligibility form.&lt;br/&gt;
+  In the meantime, if you have any questions, you can write to us at&lt;br/&gt;
+  support@proxifile.com
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;a href="https://www.proxifile.com/property-claims"&gt;
+    &lt;button&gt;Eligibility Form&lt;/button&gt;
+  &lt;/a&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  The Proxifile Team&lt;br/&gt;
+  &lt;a href="https://www.proxifile.com/"&gt;www.proxifile.com&lt;/a&gt;
+&lt;/p&gt;</camunda:script>
+            </camunda:inputParameter>
+            <camunda:inputParameter name="subject">Property claim service now available in your area</camunda:inputParameter>
+            <camunda:inputParameter name="to">${email}</camunda:inputParameter>
+          </camunda:inputOutput>
+          <camunda:connectorId>mail-send</camunda:connectorId>
+        </camunda:connector>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1840cna</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kt24pi</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:endEvent id="Event_100wn09">
+      <bpmn:incoming>Flow_0kt24pi</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0kt24pi" sourceRef="send-email" targetRef="Event_100wn09" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="property-claim-email-notification-500">
+      <bpmndi:BPMNEdge id="Flow_0kt24pi_di" bpmnElement="Flow_0kt24pi">
+        <di:waypoint x="460" y="117" />
+        <di:waypoint x="572" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1840cna_di" bpmnElement="Flow_1840cna">
+        <di:waypoint x="215" y="117" />
+        <di:waypoint x="360" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
+        <dc:Bounds x="179" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_18fi4u7_di" bpmnElement="send-email">
+        <dc:Bounds x="360" y="77" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_100wn09_di" bpmnElement="Event_100wn09">
+        <dc:Bounds x="572" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
