@@ -23,11 +23,6 @@
 9. [License](#license)
 10. [Links](#links)
 
-## Introduction
-> A brief introduction about formsflow.ai is given below.
-
-[![Introduction](./.images/formsflow-introduction.PNG)](https://youtu.be/_H-P3Av3gqg)
-
 ## About the Project
 The project was initiated by [AOT Technologies](https://www.aot-technologies.com/) as a means of addressing the general situation whereby end-users fill in a form, the form is processed and there may be a requirement to report on the form metrics or data. 
 
